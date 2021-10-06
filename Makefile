@@ -6,7 +6,7 @@
 #    By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 01:57:11 by ababaei           #+#    #+#              #
-#    Updated: 2021/10/06 02:20:26 by ababaei          ###   ########.fr        #
+#    Updated: 2021/10/06 22:44:35 by ababaei          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ CC = gcc
 
 SOLONG_SRC = main.c \
 			 parser.c \
+			 checker.c \
 
 SOLONG_OBJ = $(SOLONG_SRC:.c=.o)
 

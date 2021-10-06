@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:25:43 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/06 02:25:16 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/06 22:50:45 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,20 @@ static int	fill_map(t_parse *data, char *line)
 	return (1);
 }
 
-int	parser(t_parse *data, char *filename)
+int	parser(t_parse *data, char *filename, int *errflag)
 {
 	char *line;
 	int fd;
 	
 	fd = open(filename, O_RDONLY);
 	if (fd == - 1)
-		return (-1);
+		return (*errflag = -1);
 	while (get_next_line(fd, &line))
 	{
 		if (fill_map(data, line) == -1)
 		{
 			free(line);
-			return (-1);
+			return (*errflag = -1);
 		}
 		free(line);	
 	}

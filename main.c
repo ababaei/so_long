@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 01:48:00 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/06 02:26:41 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/06 22:58:47 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,20 @@ int main(int argc, char **argv)
 {
 	t_parse data;
 	int i = 0;
+	int errflag = 0;
 	
 	init_struct(&data);
 	if (argc == 1 || namecheck(argv[1]) == -1)
+		errflag = -1;
+	if (!errflag)
+		parser(&data, argv[1], &errflag);
+	if (!errflag)
+		checker(&data, &errflag);
+	if (errflag)
 	{
 		printf("Error\n");
 		return (EXIT_FAILURE);
 	}
-	if (parser(&data, argv[1]) == -1)
-	{
-		printf("Error\n");
-		return (EXIT_FAILURE);
-	}
-	printf("MAP\n");
 	while (data.map[i])
 	{
 		printf("%s\n",data.map[i]);
@@ -76,5 +77,7 @@ int main(int argc, char **argv)
 	printf("Player = %i\n", data.player);
 	printf("exit = %i\n", data.exit);
 	printf("collec = %i\n", data.collec);
+	printf("map_width = %i\n", data.map_width);
+	printf("map_height = %i\n", data.map_height);
 	return (EXIT_SUCCESS);
 }

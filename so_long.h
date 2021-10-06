@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:25:56 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/06 01:04:08 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/06 22:51:21 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct 	s_parse
 	int player_pos[2];
 } 				t_parse;
 
-int parser(t_parse *data, char *filename);
+int parser(t_parse *data, char *filename, int *errflag);
+int checker(t_parse *data, int *errflag);
 
 #endif
