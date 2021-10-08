@@ -32,6 +32,7 @@
 static void init_struct(t_parse *data)
 {
 	data->exit = 0;
+	data->player = 0;
 	data->collec = 0;
 	data->map_width = 0;
 	data->map_height = 0;
