@@ -13,23 +13,23 @@
 #include <stdio.h>
 #include "so_long.h"
 
-static int check_obj(t_parse *data)
+static int	check_obj(t_parse *data)
 {
 	if (data->player != 1 || data->exit != 1 || data->collec == 0)
 		return (-1);
 	return (1);
 }
 
-static int check_map(t_parse *data)
+static int	check_map(t_parse *data)
 {
-	int col;
-	int row;
+	int	col;
+	int	row;
 
 	row = 0;
 	if (data->map_width == data->map_height)
 		return (-1);
-	if (!ft_isincharset('1',data->map[0]) ||
-			!ft_isincharset('1',data->map[data->map_height - 1]))
+	if (!ft_isincharset('1', data->map[0])
+		|| !ft_isincharset('1', data->map[data->map_height - 1]))
 		return (-1);
 	while (data->map[row])
 	{
@@ -48,10 +48,10 @@ static int check_map(t_parse *data)
 	return (1);
 }
 
-int checker(t_parse *data, int *errflag)
+int	checker(t_parse *data, int *errflag)
 {
 	if (check_map(data) == -1)
-		return (*errflag = -1);	
+		return (*errflag = -1);
 	if (check_obj(data) == -1)
 		return (*errflag = -1);
 	printf("MAP OK!\n");

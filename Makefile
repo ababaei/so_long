@@ -15,6 +15,10 @@ CC = gcc
 SOLONG_SRC = main.c \
 			 parser.c \
 			 checker.c \
+			 controls.c \
+			 renderer.c \
+			 utils.c \
+			 game_loop.c
 
 SOLONG_OBJ = $(SOLONG_SRC:.c=.o)
 
@@ -38,7 +42,7 @@ $(DIROBJ)%.o: %.c
 
 $(NAME):$(DIROBJS)
 	@echo Creating executable $(NAME)	
-	@$(CC) $(DIROBJ)*.o $(FLAGS) -Llibft/ -lft -o $(NAME)
+	@$(CC) $(DIROBJ)*.o $(FLAGS) -Llibft/ -lft -lX11 -lmlx -o $(NAME)
 
 clean:
 	rm -rf $(DIROBJ)

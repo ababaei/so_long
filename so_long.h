@@ -54,5 +54,11 @@ typedef struct 	s_parse
 int parser(t_parse *data, char *filename, int *errflag);
 int checker(t_parse *data, int *errflag);
 int game_loop(t_parse *data);
+int control_handler(int keysym, t_parse *data, t_data *gfx);
+int renderer(t_parse *data, t_data *gfx);
+
+void get_pos(t_parse *data);
+int encode_rgb(unsigned int red, unsigned int green, unsigned blue);
+void img_pix_put(t_img *img, int x, int y, int color);
 
 #endif

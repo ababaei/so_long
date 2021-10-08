@@ -7,34 +7,41 @@
 
 #include "so_long.h"
 
-int renderer(t_parse *data)
+int render_rect(t_img *img, t_rect rect)
 {
-	t_data gfx;
+	int	i;
+	int j;
 
-	gfx.mlx_ptr = mlx_init();
-	if (gfx.mlx_ptr == NULL)
-		return (-1);
-	gfx.win_ptr = mlx_new_window(gfx.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT,
-			"MY firrt");
-	if (gfx.win_ptr == NULL)
+	i = rect.y;
+	while (i < rect.y + rect.height)
 	{
-		free(gfx.win_ptr);
-		return (-1);
+		j = rect.x;
+		while (j < rect.x + rect.width)
+			img_pix_put(img, j++, i, rect.color);
+		++i;
 	}
-	gfx.img.mlx_img = mlx_new_image(gfx.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
-	gfx.img.addr = mlx_get_gfx_addr(gfx.img.mlx_img, &gfx.img.bpp,
-			&gfx.img.line_len, &gfx.img.endian);
-	mlx_loop_hook(gfx.mlx_ptr, &render_loop, &gfx);
-	mlx_hook(gfx.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &gfx);
-
-	mlx_loop(gfx.mlx_ptr);
-
-	mlx_destroy_display(gfx.mlx_ptr);
-	free(gfx.mlx_ptr);
-
+	return (0);
 }
 
-int game_loop(t_data *gfx)
+int renderer(t_parse *data, t_data *gfx)
 {
-	
+	int row;
+	int col;
+
+	row = 0;
+	if (gfx->win_ptr == NULL)
+		return (-1);
+	while (data->map[row])
+	{
+		col = 0;
+		while (data->map[col])
+		{
+			if (data->map[row][col] == 1)
+				render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFF0000});
+			col++;
+		}
+		row++;
+	}
+	return (1);
 }
+
