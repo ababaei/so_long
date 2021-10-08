@@ -15,6 +15,31 @@
 
 # include "libft/libft.h"
 
+typedef struct	s_img
+{
+	void *mlx_img;
+	char *addr;
+	int bpp;
+	int line_len;
+	int endian;
+}				t_img;
+
+typedef struct	s_rect
+{
+	int x;
+	int y;
+	int width;
+	int height;
+	int color;
+}				t_rect;
+
+typedef struct s_data
+{
+	void *mlx_ptr;
+	void *win_ptr;
+	t_img img;
+}				t_data;
+
 typedef struct 	s_parse
 {
 	int player;
@@ -28,5 +53,6 @@ typedef struct 	s_parse
 
 int parser(t_parse *data, char *filename, int *errflag);
 int checker(t_parse *data, int *errflag);
+int game_loop(t_parse *data);
 
 #endif

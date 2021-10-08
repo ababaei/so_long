@@ -37,7 +37,11 @@ static void fill_data(t_parse *data)
 		while (data->map[row][col])
 		{
 			if (data->map[row][col] == 'P') 
+			{
 				data->player += 1;
+				data->player_pos[0] = col;
+				data->player_pos[1] = row;
+			}
 			if (data->map[row][col] == 'E')
 				data->exit += 1;
 			if (data->map[row][col] == 'C')

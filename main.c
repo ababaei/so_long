@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 	int errflag = 0;
 	
 	init_struct(&data);
-	if (argc == 1 || namecheck(argv[1]) == -1)
+	if (argc != 2 || namecheck(argv[1]) == -1)
 		errflag = -1;
 	if (!errflag)
 		parser(&data, argv[1], &errflag);
@@ -79,5 +79,6 @@ int main(int argc, char **argv)
 	printf("collec = %i\n", data.collec);
 	printf("map_width = %i\n", data.map_width);
 	printf("map_height = %i\n", data.map_height);
+//	game_loop(&data);	
 	return (EXIT_SUCCESS);
 }
