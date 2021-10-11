@@ -85,6 +85,32 @@ int	handle_keypress(int keysym, t_data *data)
 	return(0);
 }
 
+int renderer(t_parse *data, t_data *gfx)
+{
+	int row;
+	int col;
+
+	row = 0;
+	printf("%p | %p | %p\n",gfx->mlx_ptr, gfx->win_ptr, gfx->img.mlx_img); 
+	if (gfx->win_ptr == NULL)
+		return (-1);
+	while (data->map[row])
+	{
+		col = 0;
+		while (data->map[col])
+		{
+			img_pix_put(&gfx->img, row, col, 0xFF0000);
+			if (data->map[row][col] == '1')
+				render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFF0000});
+			col++;
+		}
+		row++;
+	}
+	printf("TOTO\n");
+	//mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->img.mlx_img, 0, 0);
+	return (1);
+}
+
 int	main(void)
 {
 	t_data data;

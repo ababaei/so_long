@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 01:48:00 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/06 22:58:47 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/08 17:43:42 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ int main(int argc, char **argv)
 	printf("collec = %i\n", data.collec);
 	printf("map_width = %i\n", data.map_width);
 	printf("map_height = %i\n", data.map_height);
-//	game_loop(&data);	
+	game_loop(&data);	
 	return (EXIT_SUCCESS);
 }

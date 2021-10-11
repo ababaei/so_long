@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:25:56 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/06 22:51:21 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/11 01:19:13 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,6 @@ typedef struct	s_rect
 	int color;
 }				t_rect;
 
-typedef struct s_data
-{
-	void *mlx_ptr;
-	void *win_ptr;
-	t_img img;
-}				t_data;
-
 typedef struct 	s_parse
 {
 	int player;
@@ -51,11 +44,20 @@ typedef struct 	s_parse
 	int player_pos[2];
 } 				t_parse;
 
+typedef struct s_data
+{
+	void *mlx_ptr;
+	void *win_ptr;
+	t_img img;
+	t_parse game;
+}				t_data;
+
+
 int parser(t_parse *data, char *filename, int *errflag);
 int checker(t_parse *data, int *errflag);
 int game_loop(t_parse *data);
-int control_handler(int keysym, t_parse *data, t_data *gfx);
-int renderer(t_parse *data, t_data *gfx);
+int control_handler(int keysym, t_data *gfx);
+int renderer(t_data *gfx);
 
 void get_pos(t_parse *data);
 int encode_rgb(unsigned int red, unsigned int green, unsigned blue);

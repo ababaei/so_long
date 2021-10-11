@@ -20,37 +20,32 @@ int render_rect(t_img *img, t_rect rect)
 			img_pix_put(img, j++, i, rect.color);
 		++i;
 	}
-	return (1);
+	return (0);
 }
 
-int renderer(t_data *gfx)
+int renderer(t_parse *data, t_data *gfx)
 {
 	int row;
 	int col;
 
 	row = 0;
-	col = 0;
 	if (gfx->win_ptr == NULL)
 		return (-1);
-	while (gfx->game.map[row])
+	while (data->map[row])
 	{
 		col = 0;
-		while (gfx->game.map[row][col])
+		while (data->map[col])
 		{
-			if (gfx->game.map[row][col] == '1')
+			img_pix_put(&gfx->img, row, col, 0xFF0000);
+			if (data->map[row][col] == 1)
 				render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFF0000});
-			if (gfx->game.map[row][col] == 'P')
-				render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xF000F0});
-			if (gfx->game.map[row][col] == 'E')
-				render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0x0000FF});
-			if (gfx->game.map[row][col] == 'C')
-				render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFFFF00});
-			if (gfx->game.map[row][col] == '0')
-				render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0x000000});
 			col++;
 		}
 		row++;
 	}
+	printf("TOTO\n");
+	printf("%p | %p | %p\n",gfx->mlx_ptr, gfx->win_ptr, gfx->img.mlx_img); 
 	mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->img.mlx_img, 0, 0);
 	return (1);
 }
+

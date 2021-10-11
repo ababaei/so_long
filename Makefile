@@ -6,7 +6,7 @@
 #    By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 01:57:11 by ababaei           #+#    #+#              #
-#    Updated: 2021/10/06 22:44:35 by ababaei          ###   ########.fr        #
+#    Updated: 2021/10/10 17:21:11 by ababaei          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(DIROBJ)%.o: %.c
 
 $(NAME):$(DIROBJS)
 	@echo Creating executable $(NAME)	
-	@$(CC) $(DIROBJ)*.o $(FLAGS) -Llibft/ -lft -lX11 -lmlx -o $(NAME)
+	@$(CC) $(DIROBJ)*.o $(FLAGS) -Llibft/ -lft -lX11 -lXext -lmlx -o $(NAME)
 
 clean:
 	rm -rf $(DIROBJ)
