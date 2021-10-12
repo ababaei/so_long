@@ -11,7 +11,7 @@ int	game_loop(t_parse *data)
 {
 	t_data gfx;
 
-	gfx.game = *data;
+	gfx.game = data;
 	gfx.mlx_ptr = mlx_init();
 	if (gfx.mlx_ptr == NULL)
 		return (-1);
@@ -25,7 +25,6 @@ int	game_loop(t_parse *data)
 	gfx.img.mlx_img = mlx_new_image(gfx.mlx_ptr, data->map_width * 32, data->map_height * 32);
 	gfx.img.addr = mlx_get_data_addr(gfx.img.mlx_img, &gfx.img.bpp,
 			&gfx.img.line_len, &gfx.img.endian);
-	printf("%p | %p | %p\n",gfx.mlx_ptr, gfx.win_ptr, gfx.img.mlx_img); 
 	mlx_loop_hook(gfx.mlx_ptr, &renderer, &gfx);
 	mlx_hook(gfx.win_ptr, KeyPress, KeyPressMask, &control_handler, &gfx);
 
@@ -34,5 +33,4 @@ int	game_loop(t_parse *data)
 	mlx_destroy_display(gfx.mlx_ptr);
 	free(gfx.mlx_ptr);
 	return (1);
-	
 }

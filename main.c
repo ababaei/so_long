@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 01:48:00 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/08 17:43:42 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/11 23:27:05 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static void init_struct(t_parse *data)
 	data->map = NULL;
 	data->player_pos[0] = 0;
 	data->player_pos[1] = 0;
+	data->moves = 0;
+	data->wasOnDoor = 0;
 }
 
 static int namecheck(char *filename)
@@ -75,11 +77,7 @@ int main(int argc, char **argv)
 		printf("%s\n",data.map[i]);
 		i++;
 	}
-	printf("Player = %i\n", data.player);
-	printf("exit = %i\n", data.exit);
-	printf("collec = %i\n", data.collec);
-	printf("map_width = %i\n", data.map_width);
-	printf("map_height = %i\n", data.map_height);
+	print_game_info(&data);
 	game_loop(&data);	
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 01:57:11 by ababaei           #+#    #+#              #
-#    Updated: 2021/10/10 17:21:11 by ababaei          ###   ########.fr        #
+#    Updated: 2021/10/12 00:09:44 by ababaei          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SOLONG_SRC = main.c \
 			 controls.c \
 			 renderer.c \
 			 utils.c \
-			 game_loop.c
+			 game_loop.c \
+			 clean_exit.c
 
 SOLONG_OBJ = $(SOLONG_SRC:.c=.o)
 

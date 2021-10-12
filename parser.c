@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:25:43 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/06 22:50:45 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/12 00:25:58 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static void fill_data(t_parse *data)
 			if (data->map[row][col] == 'P') 
 			{
 				data->player += 1;
-				data->player_pos[0] = col;
-				data->player_pos[1] = row;
+				data->player_pos[0] = row;
+				data->player_pos[1] = col;
 			}
 			if (data->map[row][col] == 'E')
 				data->exit += 1;
@@ -95,5 +95,6 @@ int	parser(t_parse *data, char *filename, int *errflag)
 	}
 	free(line);
 	fill_data(data);
+	get_exit(data);
 	return (1);	
 }
