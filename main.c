@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 01:48:00 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/11 23:27:05 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/12 21:54:04 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
  * 	-parser
  * 	-checker
  * 	-renderer
- * 	-exiter ?
- *
- * 	Pensez a free la map 5 + 1 block.
- * 
- * init_struct gonna initialize the data's values.
- * namecheck gonna check for the filename's extension.
  *
  */
 
@@ -40,7 +34,11 @@ static void init_struct(t_parse *data)
 	data->player_pos[0] = 0;
 	data->player_pos[1] = 0;
 	data->moves = 0;
-	data->wasOnDoor = 0;
+	ft_strlcpy(data->port_tex, "assets/por.xpm", 15);
+	ft_strlcpy(data->sol_tex, "assets/sol.xpm", 15);
+	ft_strlcpy(data->mur_tex, "assets/mur.xpm", 15);
+	ft_strlcpy(data->ene_tex, "assets/ene.xpm", 15);
+	ft_strlcpy(data->cha_tex, "assets/cha.xpm", 15);
 }
 
 static int namecheck(char *filename)
@@ -57,7 +55,7 @@ static int namecheck(char *filename)
 int main(int argc, char **argv)
 {
 	t_parse data;
-	int i = 0;
+//	int i = 0;
 	int errflag = 0;
 	
 	init_struct(&data);
@@ -72,12 +70,12 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (EXIT_FAILURE);
 	}
-	while (data.map[i])
-	{
-		printf("%s\n",data.map[i]);
-		i++;
-	}
-	print_game_info(&data);
+//	while (data.map[i])
+//	{
+//		printf("%s\n",data.map[i]);
+//		i++;
+//	}
+	//print_game_info(&data);
 	game_loop(&data);	
 	return (EXIT_SUCCESS);
 }

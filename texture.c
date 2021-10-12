@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_exit.c                                       :+:      :+:    :+:   */
+/*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 00:05:27 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/12 19:57:41 by ababaei          ###   ########.fr       */
+/*   Created: 2021/10/12 17:10:23 by ababaei           #+#    #+#             */
+/*   Updated: 2021/10/12 21:51:14 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,22 +19,18 @@
 
 #include "so_long.h"
 
-void	exit_game(t_parse *data)
+int init_textures(t_data *gfx, t_parse *data)
 {
-	int i;
-
-	i = 0;
-	while (data->map[i])
-	{
-		free(data->map[i]);
-		i++;
-	}
-	free(data->map);
-}
-
-void	exit_mlx(t_data *gfx)
-{
-	mlx_destroy_image(gfx->mlx_ptr, gfx->img.mlx_img);
-	mlx_destroy_window(gfx->mlx_ptr, gfx->win_ptr);
-	gfx->win_ptr = NULL;
+	int i,j;	
+	gfx->sol_img.mlx_img = mlx_xpm_file_to_image(gfx->mlx_ptr,
+			data->sol_tex, &i, &j);
+	gfx->mur_img.mlx_img = mlx_xpm_file_to_image(gfx->mlx_ptr,
+			data->mur_tex, &i, &j);
+	gfx->por_img.mlx_img = mlx_xpm_file_to_image(gfx->mlx_ptr,
+			data->port_tex, &i, &j);
+	gfx->cha_img.mlx_img = mlx_xpm_file_to_image(gfx->mlx_ptr,
+			data->cha_tex, &i, &j);
+	gfx->ene_img.mlx_img = mlx_xpm_file_to_image(gfx->mlx_ptr,
+			data->ene_tex, &i, &j);
+	return(1);
 }

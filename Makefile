@@ -6,7 +6,7 @@
 #    By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 01:57:11 by ababaei           #+#    #+#              #
-#    Updated: 2021/10/12 00:09:44 by ababaei          ###   ########.fr        #
+#    Updated: 2021/10/12 20:58:41 by ababaei          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SOLONG_SRC = main.c \
 			 renderer.c \
 			 utils.c \
 			 game_loop.c \
+			 texture.c \
 			 clean_exit.c
 
 SOLONG_OBJ = $(SOLONG_SRC:.c=.o)
@@ -27,7 +28,7 @@ DIROBJ = objs/
 
 DIROBJS = $(addprefix $(DIROBJ), $(SOLONG_OBJ))
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -g -Wextra -Werror
 NAME = so_long
 
 all:LIBFT $(NAME)

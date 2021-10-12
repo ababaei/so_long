@@ -25,16 +25,22 @@ int render_rect(t_img *img, t_rect rect)
 
 int draw_game(t_data *gfx, int row, int col)
 {
+	//printf("%p | %p | %p\n",gfx->mlx_ptr, gfx->win_ptr, gfx->mur_img.mlx_img);
 	if (gfx->game->map[row][col] == '1')
-		render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFF0000});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->mur_img.mlx_img, col * 32, row * 32);
+		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFF0000});
 	if (gfx->game->map[row][col] == 'P')
-		render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xF000F0});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->cha_img.mlx_img, col * 32, row * 32);
+		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xF000F0});
 	if (gfx->game->map[row][col] == 'E')
-		render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0x0000FF});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->por_img.mlx_img, col * 32, row * 32);
+		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0x0000FF});
 	if (gfx->game->map[row][col] == 'C')
-		render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFFFF00});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->ene_img.mlx_img, col * 32, row * 32);
+		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFFFF00});
 	if (gfx->game->map[row][col] == '0')
-		render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0x000000});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->sol_img.mlx_img, col * 32, row * 32);
+		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0x000000});
 	return (1);
 }
 
@@ -57,6 +63,6 @@ int renderer(t_data *gfx)
 		}
 		row++;
 	}
-	mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->img.mlx_img, 0, 0);
+	//mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->img.mlx_img, 0, 0);
 	return (1);
 }
