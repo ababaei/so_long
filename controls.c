@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:05:33 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/12 21:53:23 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/13 19:24:56 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	collision(t_data *gfx, int py, int px)
 {
 	if (gfx->game->map[py][px] == '1')
 		return (0);
-	else if (gfx->game->map[py][px] == 'C')	
-		gfx->game->collec -= 1;	
+	else if (gfx->game->map[py][px] == 'C')
+		gfx->game->collec -= 1;
 	else if (gfx->game->map[py][px] == 'E' && !gfx->game->collec)
 		exit_mlx(gfx);
 	gfx->game->moves++;
@@ -33,8 +33,8 @@ int	collision(t_data *gfx, int py, int px)
 
 void	player_movement(int keysym, t_data *gfx)
 {
-	int px;
-	int py;
+	int	px;
+	int	py;
 
 	px = gfx->game->player_pos[1];
 	py = gfx->game->player_pos[0];
@@ -56,8 +56,5 @@ int	control_handler(int keysym, t_data *gfx)
 	if (keysym == XK_Escape)
 		exit_mlx(gfx);
 	player_movement(keysym, gfx);
-//	printf("[%d][%d]\n", gfx->game->player_pos[0], gfx->game->player_pos[1]);
-//	printf("moves = %i\n", gfx->game->moves);
-//	printf("collec = %i\n", gfx->game->collec);
 	return (1);
 }

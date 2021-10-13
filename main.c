@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 01:48:00 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/12 21:54:04 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/13 19:21:38 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include "so_long.h"
 
-static void init_struct(t_parse *data)
+static void	init_struct(t_parse *data)
 {
 	data->exit = 0;
 	data->player = 0;
@@ -41,23 +41,23 @@ static void init_struct(t_parse *data)
 	ft_strlcpy(data->cha_tex, "assets/cha.xpm", 15);
 }
 
-static int namecheck(char *filename)
+static int	namecheck(char *filename)
 {
-	char *name;
+	char	*name;
 
 	name = ft_strrchr(filename, '.');
-	if (name == NULL || ft_strncmp(name, ".ber", 3) ||
-			ft_strncmp(filename, ".ber", 3) == 0)
+	if (name == NULL || ft_strncmp(name, ".ber", 3)
+		|| ft_strncmp(filename, ".ber", 3) == 0)
 		return (-1);
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_parse data;
-//	int i = 0;
-	int errflag = 0;
-	
+	t_parse	data;
+	int		errflag;
+
+	errflag = 0;
 	init_struct(&data);
 	if (argc != 2 || namecheck(argv[1]) == -1)
 		errflag = -1;
@@ -70,12 +70,6 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (EXIT_FAILURE);
 	}
-//	while (data.map[i])
-//	{
-//		printf("%s\n",data.map[i]);
-//		i++;
-//	}
-	//print_game_info(&data);
-	game_loop(&data);	
+	game_loop(&data);
 	return (EXIT_SUCCESS);
 }

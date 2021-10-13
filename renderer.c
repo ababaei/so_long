@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   renderer.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/13 19:21:55 by ababaei           #+#    #+#             */
+/*   Updated: 2021/10/13 19:23:12 by ababaei          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -7,10 +19,10 @@
 
 #include "so_long.h"
 
-int render_rect(t_img *img, t_rect rect)
+int	render_rect(t_img *img, t_rect rect)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = rect.y;
 	while (i < rect.y + rect.height)
@@ -23,31 +35,30 @@ int render_rect(t_img *img, t_rect rect)
 	return (1);
 }
 
-int draw_game(t_data *gfx, int row, int col)
+int	draw_game(t_data *gfx, int row, int col)
 {
-	//printf("%p | %p | %p\n",gfx->mlx_ptr, gfx->win_ptr, gfx->mur_img.mlx_img);
 	if (gfx->game->map[row][col] == '1')
-		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->mur_img.mlx_img, col * 32, row * 32);
-		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFF0000});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr,
+			gfx->mur_img.mlx_img, col * 32, row * 32);
 	if (gfx->game->map[row][col] == 'P')
-		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->cha_img.mlx_img, col * 32, row * 32);
-		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xF000F0});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr,
+			gfx->cha_img.mlx_img, col * 32, row * 32);
 	if (gfx->game->map[row][col] == 'E')
-		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->por_img.mlx_img, col * 32, row * 32);
-		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0x0000FF});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr,
+			gfx->por_img.mlx_img, col * 32, row * 32);
 	if (gfx->game->map[row][col] == 'C')
-		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->ene_img.mlx_img, col * 32, row * 32);
-		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0xFFFF00});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr,
+			gfx->ene_img.mlx_img, col * 32, row * 32);
 	if (gfx->game->map[row][col] == '0')
-		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->sol_img.mlx_img, col * 32, row * 32);
-		//render_rect(&gfx->img, (t_rect){col * 32, row * 32, 32, 32, 0x000000});
+		mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr,
+			gfx->sol_img.mlx_img, col * 32, row * 32);
 	return (1);
 }
 
-int renderer(t_data *gfx)
+int	renderer(t_data *gfx)
 {
-	int row;
-	int col;
+	int	row;
+	int	col;
 
 	row = 0;
 	col = 0;
@@ -63,6 +74,5 @@ int renderer(t_data *gfx)
 		}
 		row++;
 	}
-	//mlx_put_image_to_window(gfx->mlx_ptr, gfx->win_ptr, gfx->img.mlx_img, 0, 0);
 	return (1);
 }

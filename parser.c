@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:25:43 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/12 00:25:58 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/13 22:29:33 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 
 static int	count_lines(char ***tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(*tab && (*tab)[i])
+	while (*tab && (*tab)[i])
 		i++;
 	return (i);
 }
 
-static void fill_data(t_parse *data)
+static void	fill_data(t_parse *data)
 {
-	int col;
-	int row;
+	int	col;
+	int	row;
 
 	row = 0;
 	while (data->map[row])
@@ -36,7 +36,7 @@ static void fill_data(t_parse *data)
 		col = 0;
 		while (data->map[row][col])
 		{
-			if (data->map[row][col] == 'P') 
+			if (data->map[row][col] == 'P')
 			{
 				data->player += 1;
 				data->player_pos[0] = row;
@@ -46,7 +46,7 @@ static void fill_data(t_parse *data)
 				data->exit += 1;
 			if (data->map[row][col] == 'C')
 				data->collec += 1;
-			col++;	
+			col++;
 		}
 		row++;
 	}
@@ -56,8 +56,8 @@ static void fill_data(t_parse *data)
 
 static int	fill_map(t_parse *data, char *line)
 {
-	char **newmap;
-	int i;
+	char	**newmap;
+	int		i;
 
 	i = count_lines(&data->map);
 	newmap = malloc(sizeof(char *) * (i + 2));
@@ -78,11 +78,11 @@ static int	fill_map(t_parse *data, char *line)
 
 int	parser(t_parse *data, char *filename, int *errflag)
 {
-	char *line;
-	int fd;
-	
+	char	*line;
+	int		fd;
+
 	fd = open(filename, O_RDONLY);
-	if (fd == - 1)
+	if (fd == -1)
 		return (*errflag = -1);
 	while (get_next_line(fd, &line))
 	{
@@ -91,10 +91,10 @@ int	parser(t_parse *data, char *filename, int *errflag)
 			free(line);
 			return (*errflag = -1);
 		}
-		free(line);	
+		free(line);
 	}
 	free(line);
 	fill_data(data);
 	get_exit(data);
-	return (1);	
+	return (1);
 }

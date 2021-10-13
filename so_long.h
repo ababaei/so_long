@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:25:56 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/12 21:45:53 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/13 19:10:28 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct s_data
 {
 	void *mlx_ptr;
 	void *win_ptr;
-	t_img img;
 	t_img sol_img;
 	t_img mur_img;
 	t_img por_img;

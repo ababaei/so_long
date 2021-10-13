@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:10:23 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/12 21:51:14 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/13 19:15:52 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 
 #include "so_long.h"
 
-int init_textures(t_data *gfx, t_parse *data)
+int	init_textures(t_data *gfx, t_parse *data)
 {
-	int i,j;	
+	int	i;
+	int	j;
+
 	gfx->sol_img.mlx_img = mlx_xpm_file_to_image(gfx->mlx_ptr,
 			data->sol_tex, &i, &j);
 	gfx->mur_img.mlx_img = mlx_xpm_file_to_image(gfx->mlx_ptr,
@@ -32,5 +34,5 @@ int init_textures(t_data *gfx, t_parse *data)
 			data->cha_tex, &i, &j);
 	gfx->ene_img.mlx_img = mlx_xpm_file_to_image(gfx->mlx_ptr,
 			data->ene_tex, &i, &j);
-	return(1);
+	return (1);
 }

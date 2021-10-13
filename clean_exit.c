@@ -6,10 +6,9 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:05:27 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/12 19:57:41 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/13 19:24:04 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -22,7 +21,7 @@
 
 void	exit_game(t_parse *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (data->map[i])
@@ -35,7 +34,11 @@ void	exit_game(t_parse *data)
 
 void	exit_mlx(t_data *gfx)
 {
-	mlx_destroy_image(gfx->mlx_ptr, gfx->img.mlx_img);
+	mlx_destroy_image(gfx->mlx_ptr, gfx->sol_img.mlx_img);
+	mlx_destroy_image(gfx->mlx_ptr, gfx->mur_img.mlx_img);
+	mlx_destroy_image(gfx->mlx_ptr, gfx->por_img.mlx_img);
+	mlx_destroy_image(gfx->mlx_ptr, gfx->cha_img.mlx_img);
+	mlx_destroy_image(gfx->mlx_ptr, gfx->ene_img.mlx_img);
 	mlx_destroy_window(gfx->mlx_ptr, gfx->win_ptr);
 	gfx->win_ptr = NULL;
 }
