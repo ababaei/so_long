@@ -31,7 +31,11 @@ DIROBJS = $(addprefix $(DIROBJ), $(SOLONG_OBJ))
 FLAGS = -Wall -g -Wextra -Werror
 NAME = so_long
 
-all:LIBFT $(NAME)
+all:MLX LIBFT $(NAME)
+
+MLX:
+	@echo making mlx
+	@make -C mlx/
 
 LIBFT:
 	@echo making libft
@@ -44,13 +48,15 @@ $(DIROBJ)%.o: %.c
 
 $(NAME):$(DIROBJS)
 	@echo Creating executable $(NAME)	
-	@$(CC) $(DIROBJ)*.o $(FLAGS) -Llibft/ -lft -lX11 -lXext -lmlx -o $(NAME)
+	@$(CC) $(DIROBJ)*.o $(FLAGS) -Llibft/ -lft -Lmlx/ -lmlx_Linux -lX11 -lXext -o $(NAME)
 
 clean:
 	rm -rf $(DIROBJ)
 
 fclean: clean
 	rm -f $(NAME)
+	make -C libft/ fclean
+	make -C mlx/ clean
 
 re: fclean all
 

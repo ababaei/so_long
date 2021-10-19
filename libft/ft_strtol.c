@@ -48,17 +48,3 @@ long	ft_strtol(char *nptr, char **endptr, int base)
 	*endptr = nptr;
 	return (tmp * neg);
 }
-/*
-int main(void)
-{
-	long i = 0;
-	long n = 0;
-	char *nptr = "+125";
-	char *end;
-
-	i = strtol(nptr, &end, 10);
-	printf("i = %li\nend = %i\n",i, end[0]);
-	n = ft_strtol(nptr, &end, 10);
-	printf("n = %li\nend = %i\n",n, end[0]);
-	return (EXIT_SUCCESS);
-}*/
