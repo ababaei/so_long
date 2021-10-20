@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:25:56 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/13 19:10:28 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/21 00:59:34 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		encode_rgb(unsigned int red, unsigned int green, unsigned int blue);
 void	img_pix_put(t_img *img, int x, int y, int color);
 void	print_game_info(t_parse *data);
 
-void	exit_mlx(t_data *gfx);
+int		exit_mlx(t_data *gfx);
 void	exit_game(t_parse *data);
 
 #endif

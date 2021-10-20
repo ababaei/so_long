@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:05:27 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/13 19:24:04 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/21 01:20:07 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	exit_game(t_parse *data)
 	free(data->map);
 }
 
-void	exit_mlx(t_data *gfx)
+int	exit_mlx(t_data *gfx)
 {
 	mlx_destroy_image(gfx->mlx_ptr, gfx->sol_img.mlx_img);
 	mlx_destroy_image(gfx->mlx_ptr, gfx->mur_img.mlx_img);
@@ -41,4 +41,5 @@ void	exit_mlx(t_data *gfx)
 	mlx_destroy_image(gfx->mlx_ptr, gfx->ene_img.mlx_img);
 	mlx_destroy_window(gfx->mlx_ptr, gfx->win_ptr);
 	gfx->win_ptr = NULL;
+	return (1);
 }

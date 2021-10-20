@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 19:16:10 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/20 12:49:07 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/21 00:32:10 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	game_loop(t_parse *data)
 	init_textures(&gfx, data);
 	mlx_loop_hook(gfx.mlx_ptr, &renderer, &gfx);
 	mlx_hook(gfx.win_ptr, KeyPress, KeyPressMask, &control_handler, &gfx);
+	mlx_hook(gfx.win_ptr, DestroyNotify, NoEventMask, &exit_mlx, &gfx);
 	mlx_loop(gfx.mlx_ptr);
 	exit_game(data);
 	mlx_destroy_display(gfx.mlx_ptr);
