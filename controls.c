@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:05:33 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/13 19:24:56 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/20 12:50:45 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	collision(t_data *gfx, int py, int px)
 	else if (gfx->game->map[py][px] == 'E' && !gfx->game->collec)
 		exit_mlx(gfx);
 	gfx->game->moves++;
+	printf("moves = %d\n", gfx->game->moves);
 	return (1);
 }
 
