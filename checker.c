@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 21:07:56 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/13 19:07:06 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/25 16:12:51 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ static int	check_map(t_parse *data)
 	int	row;
 
 	row = 0;
-	if (data->map_width == data->map_height)
-		return (-1);
 	if (!ft_isincharset('1', data->map[0])
 		|| !ft_isincharset('1', data->map[data->map_height - 1]))
 		return (-1);

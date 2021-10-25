@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 19:16:10 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/21 00:32:10 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:17:44 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	init_game(t_parse *data, t_data *gfx)
 		free(gfx->win_ptr);
 		return (-1);
 	}
+	mlx_get_screen_size(gfx->mlx_ptr, &gfx->game->screen_x,
+		&gfx->game->screen_y);
 	return (1);
 }
 

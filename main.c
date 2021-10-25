@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 01:48:00 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/13 19:21:38 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/25 16:02:01 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void	init_struct(t_parse *data)
 	data->player_pos[0] = 0;
 	data->player_pos[1] = 0;
 	data->moves = 0;
+	data->screen_x = 0;
+	data->screen_y = 0;
 	ft_strlcpy(data->port_tex, "assets/por.xpm", 15);
 	ft_strlcpy(data->sol_tex, "assets/sol.xpm", 15);
 	ft_strlcpy(data->mur_tex, "assets/mur.xpm", 15);

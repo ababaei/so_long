@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 19:21:55 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/20 13:03:15 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/25 19:19:05 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,13 @@ int	renderer(t_data *gfx)
 	col = 0;
 	if (gfx->win_ptr == NULL)
 		return (-1);
+	if ((gfx->game->screen_x < gfx->game->map_width * 32)
+		|| (gfx->game->screen_y < gfx->game->map_height * 32))
+	{
+		printf("Error: Map getting out of screen\n");
+		exit_mlx(gfx);
+		return (-1);
+	}
 	while (gfx->game->map[row])
 	{
 		col = 0;

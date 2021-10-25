@@ -6,7 +6,7 @@
 /*   By: ababaei <ababaei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 22:25:56 by ababaei           #+#    #+#             */
-/*   Updated: 2021/10/21 00:59:34 by ababaei          ###   ########.fr       */
+/*   Updated: 2021/10/25 16:02:51 by ababaei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_parse
 	int		moves;
 	int		exit_x;
 	int		exit_y;
+	int		screen_x;
+	int		screen_y;
 	char	port_tex[15];
 	char	sol_tex[15];
 	char	mur_tex[15];
